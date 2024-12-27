@@ -24,7 +24,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Build and push docker image
-      uses: mr-smithers-excellent/docker-build-push@4
+      uses: mr-smithers-excellent/docker-build-push@6
       with:
         image: essousy11/demo-app
         registry: docker.io
