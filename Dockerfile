@@ -1,8 +1,13 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk:17-jdk-alpine as builder
 
+# Set working directory
+WORKDIR /app
+
+# Copy JAR file (replace "spring.jar" with your actual file name)
+COPY spring.jar app.jar
+
+# Expose port (replace 8080 with your application port)
 EXPOSE 8080
 
-COPY ./build/libs/my-app-1.0-SNAPSHOT.jar /usr/app/
-WORKDIR /usr/app
-
-ENTRYPOINT ["java", "-jar", "my-app-1.0-SNAPSHOT.jar"]
+# Entrypoint to run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
